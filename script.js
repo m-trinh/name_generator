@@ -1,6 +1,6 @@
 var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", 
 	"s", "t", "v", "x", "z", "w", "y"];
-var singleVowel = ["a", "e", "i", "o", "u", "y"];
+var singleVowel = ["a", "e", "i", "o", "u", "a", "e", "i", "o", "u", "y"];
 var vowels = ["a", "ae", "ai", "ao", "au", "ay", "e", "ea", "ei", "eo", "i", "ia", "ie", 
 	"io", "iu", "o", "oa", "ou", "oy", "u", "ua", "ui", "uo", "y", "ya", "yo", "ue"];
 var startCombo = ["bh", "bl", "br", "ch", "chr", "cl", "cr", "dh", "dj", "dr", "f", "fl", 
@@ -23,8 +23,8 @@ function generateName() {
 	var current = 1;
 	while (current <= sections) {
 		if (current == 1) {
-			random = Math.floor((Math.random() * 3) + 1);
-			if (random == 1) {
+			random = Math.floor(Math.random() * 3);
+			if (random == 0) {
 				newName += addVowel();
 				previous = "vowel";
 			} else {
@@ -35,8 +35,8 @@ function generateName() {
 			current++;
 		} else if (current == sections){
 			current++;
-			random = Math.floor((Math.random() * 5) + 1);
-			if (random == 1 && (previous == "vowel" || previous == "consonant")) {
+			random = Math.floor(Math.random() * 5);
+			if (random == 0 && (previous == "vowel" || previous == "consonant")) {
 				break;
 			} else if (previous == "consonant2") {
 				newName += addVowel();
@@ -51,14 +51,14 @@ function generateName() {
 				newName += consonants[random];
 				previous = "consonant";
 			} else if (previous == "consonant") {
-				random = random = Math.floor((Math.random() * 2) + 1);
-				if (random == 1) {
-					newName += addVowel();
-					previous = "vowel";
-				} else {
+				random = random = Math.floor(Math.random() * 4);
+				if (random == 0) {
 					random = Math.floor((Math.random() * consonants.length));
 					newName += consonants[random];
 					previous = "consonant2";
+				} else {
+					newName += addVowel();
+					previous = "vowel";
 				}
 				current++;
 			} else {
