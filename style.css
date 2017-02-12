@@ -2,21 +2,26 @@
 	margin:0;
 	padding:0;
 	font-family: Ariel, sans-serif;
+	background-color:#e1eaea;
 }
 
 h1 {
 	text-align:center;
-	letter-spacing:5px;
+	letter-spacing:7px;
 	font-size:52px;
 	margin:40px 0;
 }
 
 div {
 	width:540px;
+	padding:20px 20px 20px 140px;
 	position: absolute;
     top:50%;
-	left:54%;
+	left:50%;
 	transform: translate(-50%, -50%);
+	background-color:white;
+	border:2px solid white;
+	border-radius:6px;
 }
 
 p {
@@ -27,6 +32,7 @@ p {
 	height:40px;
 	border-bottom:2px solid black;
 	float:left;
+	background-color:white;
 }
 
 button {
@@ -38,4 +44,14 @@ button {
 	float:right;
 	background-color:#336699;
 	border:none;
+	border-radius:2px;
+	transition:background-color 1s;
+}
+
+button:hover {
+	background-color:#264d73;
+}
+
+button:focus {
+	outline:none;
 }
